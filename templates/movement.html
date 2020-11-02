@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% block head %}
+<title>Inventory Management</title>
+{% endblock %} {% block body %}
+<div class="main">
+  <div class="side-bar" id="side-bar">
+    <img
+      src="{{url_for('static',filename='assets/product/product-logo.jpg')}}"
+    />
+    <ul class="dashboard">
+      <li class="dashboard-item" onclick="window.location.pathname=''">
+        <i class="fa fa-home" aria-hidden="true"></i>Dashboard
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='product'">
+        <i class="fa fa-product-hunt" aria-hidden="true"></i>Products
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='location'">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>Locations
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='movement'">
+        <i class="fa fa-plane" aria-hidden="true"></i>Movements
+      </li>
+    </ul>
+  </div>
+  <div class="content" id="content">
+    <form class="movement-form" action="/movement" method="POST">
+      <input
+        placeholder="Movement ID"
+        type="text"
+        class="input"
+        name="movement_id"
+      />
+      <div>
+        <input
+          placeholder="Location"
+          type="text"
+          class="input"
+          name="location"
+        />
+        <input type="radio" name="location-group" id="from" value="from" />
+        <label class="from-label">From</label>
+        <input type="radio" name="location-group" id="to" value="to" />
+        <label class="to-label">To</label>
+      </div>
+
+      <input
+        placeholder="Product ID"
+        type="text"
+        class="input"
+        name="product_id"
+      />
+      <input placeholder="Quantity" type="number" class="input" name="qty" />
+      <input
+        type="submit"
+        class="add-button"
+        value="Add Movement"
+        onclick="addProduct()"
+      />
+    </form>
+    <div class="elements">
+      {% for movement in movements %}
+      <div class="movement-box">
+        <img
+          src="{{url_for('static',filename='assets/movement/movement.jpg')}}"
+          class="product-image"
+        />
+        <div class="product-data">
+<input class="product-name" value="{{movement.movement_id}}" id="{{movement.movement_id}}" />
+        </div>
+        <div class="product-data">
+          <input class="product-name" value="{{movement.timestamp}}"/>
+                  </div>
+        <div class="product-data">
+          <input class="product-name" value="{{movement.from_location}}"/>
+        </div>
+        <div class="product-data">
+          <input class="product-name" value="{{movement.to_location}}"/>
+        </div>
+        <div class="product-data">
+          <input class="product-name" value="{{movement.product_id}}"/>
+        </div>
+        <div class="product-data">
+          <input class="product-name" value="{{movement.qty}}"/>
+        </div>
+        <div class="button-container">
+          <input
+            type="button"
+            class="delete-button"
+            value="Delete"
+            onclick="sendDeleteRequest(this.parentElement.parentElement.children[1].children[0].value,'movement')"
+          />
+          <input
+            type="button"
+            class="update-button"
+            value="Submit Edit"
+            onclick="sendUpdateRequest(this.parentElement.parentElement.children[1].children[0].id,this.parentElement.parentElement.children[1].children[0].value,'movement')"
+          />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

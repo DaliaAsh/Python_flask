@@ -1,0 +1,12 @@
+{% extends 'dashboard-base.html'%} {% block head %} {% endblock %} {% block body
+%}
+<h1 class="home-header">Inventory Management</h1>
+<div class="box">
+  <div class="boxes-container" id="logo-image">
+    <div id="product-box" onclick="setPage('product')">Products</div>
+    <div id="location-box" onclick="setPage('location')">Locations</div>
+    <div id="movement-box" onclick="setPage('movement')">Movements</div>
+  </div>
+  <img src="../static/assets/logo.jpg" width="300" height="300" />
+</div>
+{% endblock %}

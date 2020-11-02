@@ -1,0 +1,92 @@
+.content {
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #1877f2; /* #f0f2f5*/
+  }
+  .content-location {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #FF87B7; /* #f0f2f5*/
+  }
+  .product-form {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 15em;
+    margin-top: 10%;
+    margin-left: 5%;
+    box-shadow: 0.05em 0.05em 1em 0.05em gray;
+    background-color: white;
+    border-radius: 1.5em;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+ 
+  .movement-form {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 25em;
+    margin-top: 10%;
+    margin-left: 5%;
+    box-shadow: 0.05em 0.05em 1em 0.05em gray;
+    background-color: white;
+    border-radius: 1.5em;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .input {
+    height: 1.5em;
+    border: 1px solid #eeeeee;
+  }
+  .input,
+  .add-button ,.add-button-location {
+    width: 90%;
+    border-radius: 0.5em;
+    outline: none;
+    padding: 0.5em;
+    font-size: large;
+  }
+  .add-button {
+    height: 3em;
+    font-family: Noto Sans;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+  }
+  .add-button-location{
+      height: 3em;
+      font-family: Noto Sans;
+      background-color:  #4f4f4f;
+      color: white;
+      border: none;
+    }
+  .elements {
+    width: 70%;
+    padding-left: 3em;
+    padding-top: 2em;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 2em;
+    column-gap: 2em;
+  }
+  
+  .add-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .add-button-location:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .from-label,.to-label{
+  font-family: Not Sons;
+  }

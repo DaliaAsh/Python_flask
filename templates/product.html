@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block head %}
+<title>Inventory Management</title>
+{% endblock %} {% block body %}
+<div class="main">
+  <div class="side-bar" id="side-bar">
+    <img
+      src="{{url_for('static',filename='assets/product/product-logo.jpg')}}"
+    />
+    <ul class="dashboard">
+      <li class="dashboard-item" onclick="window.location.pathname=''">
+        <i class="fa fa-home" aria-hidden="true"></i>Dashboard
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='product'">
+        <i class="fa fa-product-hunt" aria-hidden="true"></i>Products
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='location'">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>Locations
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='movement'">
+        <i class="fa fa-plane" aria-hidden="true"></i>Movements
+      </li>
+    </ul>
+  </div>
+  <div class="content" id="content">
+    <form class="product-form" action="/product" method="POST">
+      <input
+        placeholder="Product ID"
+        type="text"
+        class="input"
+        id="product_id"
+        name="product_id"
+      />
+      <input type="submit" class="add-button" value="Add Product" />
+    </form>
+    <div class="elements">
+      {% for product in products %}
+      <div class="product">
+        <img
+          src="{{url_for('static',filename='assets/product/product.png')}}"
+          class="product-image"
+        />
+        <div class="product-data">
+          <input class="product-name" value="{{product.product_id}}" id="{{product.product_id}}" />
+        </div>
+        <div class="button-container">
+          <input
+            type="button"
+            class="delete-button"
+            value="Delete"
+            onclick="sendDeleteRequest(this.parentElement.parentElement.children[1].children[0].value,'product')"
+          />
+          <input
+            type="button"
+            class="update-button"
+            value="Submit Edit"
+            onclick="sendUpdateRequest(this.parentElement.parentElement.children[1].children[0].id,this.parentElement.parentElement.children[1].children[0].value,'product')"
+          />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

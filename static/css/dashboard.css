@@ -1,0 +1,80 @@
+html{
+  margin: 0;
+  padding: 0;
+}
+.home-body {
+  width: 100%;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+  background-color:#4F4F4F ;
+}
+.home-header {
+  color: white;
+  font-weight: bold;
+  font-family: 'Itim', cursive;
+  text-align: center;
+  font-size: 2.5em;
+}
+.boxes-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #product-box,
+  #location-box,
+  #movement-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Itim', cursive;
+    color: white;
+    font-size: larger;
+  }
+  #product-box {
+    background-color: #1877f2;
+    width: 7em;
+    height: 5em;
+    border-radius: 2em;
+    margin: 2em;
+    transition: width 2s;
+  }
+  #product-box:hover {
+    width: 30em;
+    background-image: url("../assets/product/product.png");
+    cursor: pointer;
+    background-size: cover;
+  }
+  #location-box {
+    background-color: #ff87b7;
+    width: 7em;
+    height: 5em;
+    border-radius: 2em;
+    margin: 2em;
+    transition: width 2s;
+  }
+  #location-box:hover {
+    width: 30em;
+    background-image: url("../assets/location/location.jpg");
+    cursor: pointer;
+    background-size: cover;
+  }
+  #movement-box {
+    background-color: #ebc42a;
+    width: 7em;
+    height: 5em;
+    border-radius: 2em;
+    margin: 2em;
+    transition: width 2s;
+  }
+  #movement-box:hover {
+    width: 30em;
+    background-image: url("../assets/movement/movement.jpg");
+    cursor: pointer;
+    background-size: cover;
+  }
+  .box{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }

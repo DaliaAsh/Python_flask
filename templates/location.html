@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block head %}
+<title>Inventory Management</title>
+{% endblock %} {% block body %}
+<div class="main">
+  <div class="side-bar-location">
+    <img src="{{url_for('static',filename='assets/logo.jpg')}}" />
+    <ul class="dashboard-location">
+      <li class="dashboard-item" onclick="window.location.pathname=''">
+        <i class="fa fa-home" aria-hidden="true"></i>Dashboard
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='product'">
+        <i class="fa fa-product-hunt" aria-hidden="true"></i>Products
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='location'">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>Locations
+      </li>
+      <li class="dashboard-item" onclick="window.location.pathname='movement'">
+        <i class="fa fa-plane" aria-hidden="true"></i>Movements
+      </li>
+    </ul>
+  </div>
+  <div class="content-location">
+    <form class="product-form" action="/location" method="POST">
+      <input placeholder="Location ID" type="text" class="input" name="location_id">
+      <input
+        type="submit"
+        class="add-button-location"
+        value="Add location"
+      >
+    </form>
+    <div class="elements">
+      {% for location in locations %}
+      <div class="product">
+        <img
+          src="{{url_for('static',filename='assets/location/location.jpg')}}"
+          class="product-image"
+        />
+        <div class="product-data">
+          <input class="product-name" value="{{location.location_id}}" id="{{location.location_id}}" />
+        </div>
+        <div class="button-container">
+          <input
+            type="button"
+            class="delete-button-location"
+            value="Delete"
+            onclick="sendDeleteRequest(this.parentElement.parentElement.children[1].children[0].value,'location')"
+          />
+          <input
+            type="button"
+            class="update-button"
+            value="Submit Edit"
+            onclick="sendUpdateRequest(this.parentElement.parentElement.children[1].children[0].id,this.parentElement.parentElement.children[1].children[0].value,'location')"
+          />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
