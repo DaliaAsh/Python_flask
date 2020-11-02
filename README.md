@@ -1,2 +1,9 @@
 # Python_flask
-![](https://user-images.githubusercontent.com/46220562/97902221-ef51da80-1d45-11eb-9af4-32a4fda8d5d7.png)
+<h1>Home Page</h1>
+![](sreens/1.png)
+<h1>Products Page</h1>
+![](sreens/2.png)
+<h1>Locations Page</h1>
+![](screens/3.png)
+<h1>Movements Page</h1>
+![](screens/4.png)
